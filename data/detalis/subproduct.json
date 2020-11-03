@@ -1,0 +1,171 @@
+{
+  "a_1": {
+    "title": "分期免息Apple/苹果 iPhone XS Max国行xs苹果xr双卡全网通8x手机",
+    "price": "￥2000",
+    "sell": "365人已付款",
+    "shop": "中国移动通信",
+    "address": "广东 深圳",
+    "comment": 256,
+    "color": [
+      {
+        "name": "6.1英寸 iPhone XR【黑色】",
+        "store": ["64GB", "128GB", "256GB", "512GB"]
+      },
+      {
+        "name": "6.1英寸 iPhone XR【白色】",
+        "store": ["64GB", "128GB", "256GB"]
+      },
+      {
+        "name": "6.1英寸 iPhone XR【蓝色】",
+        "store": ["64GB", "128GB", "256GB"]
+      },
+      {
+        "name": "6.1英寸 iPhone XR【黄色】",
+        "store": ["64GB", "128GB", "256GB"]
+      },
+      {
+        "name": "6.1英寸 iPhone XR【红色】",
+        "store": ["64GB", "128GB", "256GB"]
+      },
+      {
+        "name": "6.1英寸 iPhone XR【珊瑚色】",
+        "store": ["64GB", "128GB", "256GB"]
+      },
+      {
+        "name": "5.8英寸 iPhone XS【黑色】",
+        "store": ["64GB", "256GB"]
+      },
+      {
+        "name": "5.8英寸 iPhone XS【白色】",
+        "store": ["64GB", "256GB"]
+      },
+      {
+        "name": "5.8英寸 iPhone XS【金色】",
+        "store": ["64GB", "256GB"]
+      },
+      {
+        "name": "6.5英寸 iPhone XSMAX【黑色】",
+        "store": ["64GB", "256GB","512GB"]
+      },
+      {
+        "name": "6.5英寸 iPhone XSMAX【白色】",
+        "store": ["64GB", "256GB","512GB"]
+      },
+      {
+        "name": "6.5英寸 iPhone XSMAX【金色】",
+        "store": ["64GB", "256GB","512GB"]
+      },
+      {
+        "name": "iPhone XR【有锁预定】",
+        "store": ["64GB"]
+      }
+    ],
+    "store": ["64GB","128GB", "256GB","512GB"],
+    "menu": "官方标配",
+    "version": "中国大陆",
+    "inventory": 100
+  },
+  "a_2": {
+    "title": "【新品上市 12期分期】vivo Y73s双模5G智能新款手机官方旗舰店官网正品全新限量版vivoy73s y70 y50 y51s",
+    "price": "￥1998",
+    "sell": "5人已付款",
+    "shop": "中国移动手机官方旗舰店",
+    "address": "广东 广州",
+    "comment": 6,
+    "color": [
+      {
+        "name": "黑镜",
+        "store": ["8+128GB"]
+      }
+    ],
+    "store": ["8+128GB"],
+    "menu": "官方标配",
+    "version": "中国大陆",
+    "inventory": 3
+  },
+  "a_3": {
+    "title": "【新品上市 12期分期】vivo Y73s双模5G智能新款手机官方旗舰店官网【稀缺爆品 抢券至高省500元 12期免息】小米105g手机骁龙8651亿像素8K相机智能游戏小米官方旗舰店小米手机正品全新限量版vivoy73s y70 y50 y51s",
+    "price": "￥3699",
+    "sell": "5人已付款",
+    "shop": "苏宁易购官方旗舰店",
+    "address": "江苏 南京",
+    "comment": 88,
+    "color": [
+      {
+        "name": "冰海蓝",
+        "store":  ["8+128GB", "8+256GB"]
+      },
+      {
+        "name": "国风雅灰",
+        "store":  ["8+128GB", "8+256GB"]
+      },
+      {
+        "name": "钛银黑",
+        "store":  ["8+128GB", "8+256GB"]
+      },{
+        "name": "蜜桃金",
+        "store":  ["8+128GB", "8+256GB"]
+      }
+    ],
+    "store": ["8+128GB", "8+256GB"],
+    "menu": "官方标配",
+    "version": "中国大陆",
+    "inventory": 3
+  },
+  "a_4": {
+    "title": "【双11限时抢购优惠300】Huawei/华为nova7 Pro 5G 追焦双摄曲面屏麒麟985 5g华为手机华为官方旗舰店",
+    "price": "￥4099",
+    "sell": "1W+人已付款",
+    "shop": "华为官方旗舰店",
+    "address": "广东 深圳",
+    "comment": 15337,
+    "color": [
+      {
+        "name": "亮黑色",
+        "store":  ["8+128GB", "8+256GB"]
+      },
+      {
+        "name": "仲夏紫",
+        "store":  ["8+128GB", "8+256GB"]
+      },
+      {
+        "name": "绮镜森林",
+        "store":  ["8+128GB", "8+256GB"]
+      },{
+        "name": "7号色",
+        "store":  ["8+128GB", "8+256GB"]
+      }
+    ],
+    "store": ["8+128GB", "8+256GB"],
+    "menu": "官方标配",
+    "version": "中国大陆",
+    "inventory": 3000
+  },
+  "a_5": {
+    "title": "【OPPO A32】全网通新品手机128G大内存四摄5000mAh超大电池18W快充全网通手机a52 a11 a5a8",
+    "price": "￥1499",
+    "sell": "101人已付款",
+    "shop": "oppo官方旗舰店",
+    "address": "广东 深圳",
+    "comment": 36,
+    "color": [
+      {
+        "name": "琉璃黑",
+        "store": ["4+128GB", "8+128GB"]
+      },
+      {
+        "name": "薄荷绿",
+        "store": ["4+128GB", "8+128GB"]
+      },
+      {
+        "name": "幻想蓝",
+        "store": ["4+128GB", "8+128GB"]
+      }
+    ],
+    "store": ["4+128GB", "8+128GB"],
+    "menu": "官方标配",
+    "version": "中国大陆",
+    "inventory": 237
+  }
+}
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>下拉框</title>
+	<style>
+		.odiv{width: 1000px; height: auto;margin: 0 auto;
+			padding: 50px;}
+		.ospan{display: block; width: 100px;
+		height: 30px;background-color: green;cursor: pointer;
+		text-align: center;line-height: 30px}
+		.list{width: 100px; height: 100px; background-color: red;
+			display: none;}
+		ul{list-style-type: none;padding: 0;margin: 0}
+		
+	</style>
+</head>
+<body>
+<div class="odiv">
+	<span class="ospan">我的世界</span>
+	<div class="list">
+		<ul>
+			<li><a>暗黑</a></li>
+			<li>魔兽</li>
+			<li>王者</li>
+			<li>绝地求生</li>
+
+		</ul>
+	</div>
+</div>
+<script>
+	(function(){
+		function $$(css,el){
+			el = el || document;
+			return el.querySelector(css);
+		}
+		var ospan = $$('.ospan');
+		var list = $$('.list');
+		ospan.onmouseenter=function(e){
+			//console.log(e.target)
+			list.style.display = 'block';
+			console.log(e.relatedTarget)
+		}
+		ospan.onmouseleave=function(e){
+			if(e.relatedTarget.nodeName !== 'LI'){
+				list.style.display = 'none';
+			}
+		}
+
+		list.onmouseleave=function(e){
+			var target=e.relatedTarget;
+			 if(target.nodeName !=='LI'&&target.nodeName !=='SPAN'){
+			 	this.style.display = 'none';
+			 }
+		}
+
+
+	}());
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "xing": {
+    "username": "xing",
+    "age": 18,
+    "sex": "男",
+    "province": "山西临汾",
+    "grade": "1905A"
+  },
+  "tian": {
+    "username": "tian",
+    "age": 23,
+    "sex": "男",
+    "province": "山西侯马",
+    "grade": "1906A"
+  },
+  "lun": {
+    "username": "lun",
+    "age": 24,
+    "sex": "男",
+    "province": "山西史店",
+    "grade": "1907A"
+  }
+}

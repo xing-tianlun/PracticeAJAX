@@ -1,0 +1,19 @@
+function getxmlhttp() {
+	let xmlhttp
+	if(window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest
+	}else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+	}
+	return xmlhttp
+}
+function send() {
+	let xmlhttp = getxmlhttp()
+	xmlhttp.onreadystatechange = function() {
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$qS('.odiv').innerText = xmlhttp.responseext
+		}
+	}
+	xmlhttp.open('GET', 'ajax_info.txt', true)
+	xmlhttp.send()
+}

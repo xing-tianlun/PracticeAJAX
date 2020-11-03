@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .odiv {
+      width: 1000px;
+      margin: 0 auto;
+      /* position: relative; */
+    }
+
+    .o-head {
+      width: 100%;
+      height: 50px;
+      background: #f5f5f5;
+    }
+
+    .o-head-left {
+      width: 40%;
+      height: 100%;
+      float: left;
+    }
+
+    .o-head-right {
+      width: 60%;
+      height: 100%;
+      float: right;
+    }
+
+    .o-head-left span {
+      padding: 5px;
+      display: none;
+    }
+
+    .o-head-left span label {
+      font-size: 20px;
+      color: #f60;
+    }
+
+    .o-head-left span.on {
+      display: inline-block;
+    }
+
+    .o-head-left a {
+      text-decoration: none;
+      color: #000;
+    }
+    .o-head-left a:hover {
+      color: #f60;
+    }
+    .content {
+      width: 100%;
+      min-height: 100px;
+      background: #f4f4f4;
+      margin-top: 5px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    table tr td:nth-child(1) {
+      text-align: right;
+    }
+
+    table tr td:nth-child(2) {
+      text-align: left;
+    }
+
+    td,
+    th {
+      text-align: center;
+      border: 1px solid #000;
+      padding: 5px;
+    }
+
+    div[name=weather]>span:nth-child(3) {
+      display: block;
+    }
+
+    .o-head-right>div {
+      float: left;
+    }
+
+    .weather {
+      /* background: #f60; */
+      height: 100%;
+      width: 30px;
+      line-height: 50px;
+    }
+
+    .o-info {
+      display: inline-block;
+      width: 500px;
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .weather img {
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .wh-show {
+      position: absolute;
+      width: 605px;
+      min-height: 100px;
+      padding: 10px;
+      border: 1px solid #000;
+      background: #fff;
+      border-radius: 10px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .wh-show div[name=yesterday] {
+      line-height: 30px;
+    }
+
+    .wh-show div[name=tomorrow]>div {
+      display: inline-block;
+      width: 80px;
+      text-align: center;
+      border-radius: 5px;
+      margin: 0 3px;
+    }
+
+    .wh-show div[name=tomorrow]>div:hover {
+      background: #f5f5f5;
+    }
+
+    .wh-show div[name=tomorrow]>div span img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .wh-show div[name=tomorrow]>div span {
+      line-height: 30px;
+    }
+
+    .img-wea {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      background-image: url(./img/weather.jpg);
+    }
+
+    .article {
+      width: 600px;
+      min-height: 20px;
+      padding: 10px;
+      margin: 3px 0;
+      border: 2px solid #000;
+      overflow: hidden;
+    }
+    .article:hover {
+      border: 2px solid  #4e6ef2;
+    }
+    .article .ac-l {
+      float: left;
+      width: 100px;
+      height: 100%;
+    }
+
+    .article .ac-l img {
+      width: 200px;
+    }
+
+    .article .ac-r {
+      float: right;
+      width: 390px;
+      height: 100%;
+    }
+
+    .article .ac-r a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .article .ac-r a:hover {
+      color: #4e6ef2;
+    }
+
+    .article .ac-r p {
+      font-size: 14px;
+      margin: 10px 0 0 0;
+      color: #444;
+    }
+
+    .article .ac-r img {
+      width: 100px;
+      margin: 10px 20px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 10px 0;
+      min-height: 20px;
+      background: #f4f4f4;
+      margin-top: 5px;
+      font-size: 0;
+    }
+
+    .search .s-type {
+      font-size: 16px;
+      margin: 0 0 5px 8px;
+    }
+
+    .search .s-type span {
+      margin: 0 2px;
+    }
+    .search input,
+    .search button {
+      font-size: 16px;
+    }
+
+    .search input {
+      padding: 3px;
+      margin: 0 0 0 10px;
+      width: 250px;
+      height: 20px;
+      text-indent: 10px;
+      border-radius: 5px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border: 1px solid #4e6ef2;
+    }
+
+    .search input:focus,
+    .search button:focus {
+      outline: none;
+    }
+
+    .search button {
+      width: 50px;
+      font-size: 14px;
+      vertical-align: top;
+      border: none;
+      background: #4e6ef2;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    .s-type {
+      margin-bottom: 5px;
+    }
+
+    .s-type span {
+      display: inline-block;
+      border: 1px solid #000;
+      padding: 3px 4px;
+      border-radius: 3px;
+    }
+
+    .s-type span.s-on {
+      border: 1px solid #f00;
+      color: #f00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="odiv">
+    <div class="o-head">
+      <div class="o-head-left">
+        <span name="login"><a href="01_index.html">亲，请登录</a></span>
+        <span name="username">欢迎 <label></label> 登录！</span>
+        <a href="./01_web/product.html">淘宝</a>
+        <a href="./01_web/product.html">我的购物车</a>
+      </div>
+      <div class="o-head-right">
+        <div name="weather" style="display: none;">
+          <span name="place"></span>
+          <span name="yesterday"></span>
+          <span name="today"></span>
+          <span name="tomorrow"></span>
+        </div>
+        <div class="weather">
+          <img src="img/sun.png" width="23px" height="23px">
+        </div>
+        <div class="o-info"></div>
+      </div>
+    </div>
+    <div class="wh-show">
+      <h1 code="1" name="place"></h1>
+      <div code="1" name="today"></div>
+      <div code="1" name="yesterday"></div>
+      <div code="1" name="tomorrow"></div>
+    </div>
+    <div class="search">
+      <div class="s-type">
+        <span name="title">标题</span>
+        <span name="author_name">作者</span>
+        <span name="category">分类</span>
+        <!-- <span name="date">日期</span> -->
+        排序：<select name="sel" id="">
+          <option value="">--请选择--</option>
+          <option value="1">升序</option>
+          <option value="2">降序</option>
+        </select>
+      </div>
+      <input type="text" name="search">
+      <button name="searchBtn">搜索</button>
+    </div>
+    <div class="content">
+
+    </div>
+  </div>
+  <script type="text/template" name="template">
+    <h1>
+      这里是电商平台！
+    </h1>
+  </script>
+  <script type="text/template" name="table">
+    <tr><td>%a</td><td>%b</td></tr>
+  </script>
+  <script src="./js/common.js"></script>
+  <script src="./js/service.js"></script>
+  <script src="./js/plugin.js"></script>
+  <script src="./js/control.js"></script>
+
+  <script>
+    (function () {
+      function checkLoginStatus() {
+        if (xtl.getCookie('username')) {
+          xtl.$qS('span[name=username] label').innerText = xtl.getCookie('username');
+          xtl.$qS('span[name=username]').className = 'on'
+          xtl.$qS('span[name=login]').className = ''
+          getMessage()
+        } else {
+          xtl.$qS('span[name=username]').className = ''
+          xtl.$qS('span[name=login]').className = 'on'
+          xtl.$qS('.content').innerHTML = xtl.$qS('script[name=template]').innerText
+        }
+      }
+      function getMessage() {
+        xtl.send(xtl.service.info, function (msg) {
+          let data = msg[xtl.getCookie('username')]
+          let arr = ['<table>']
+          let tb = xtl.$qS('script[name=table]')
+          let tb_txt = tb.innerText
+          let obj = {
+            'username': '用户名',
+            'age': '年龄',
+            'sex': '性别',
+            'province': '省份',
+            'grade': '班级'
+          }
+          for (let key in data) {
+            // console.log(key);
+            // arr.push('<tr><td>'+key+'</td>'+'<td>'+data[key]+'</td>'+'</tr>')
+            // arr.push(tb_txt.replace(/%a/, key).replace(/%b/, data[key]))
+            arr.push('<span> ' + obj[key] + ':' + data[key] + ' </span>')
+          }
+          arr.push('</table>')
+          xtl.$qS('.o-head-right div.o-info').innerHTML = arr.join('')
+        });
+      }
+      function getWeather() {
+        xtl.send(xtl.service.weather, function (msg) {
+          let data = msg.data
+          let yesterday = data.yesterday
+          let forecast = msg.data.forecast
+          let arr = []
+          let ar = []
+          let weather_obj = {
+            '晴': '-60px -16px',
+            '阴': '-22px -20px',
+            '多云': '-100px -20px',
+            '雨': '-22px -68px',
+            '雪': '-145px -68px'
+          }
+          xtl.$qS('.wh-show h1[name=place]').innerText = data.city
+          xtl.$qS('.wh-show div[name=yesterday]').innerHTML = ' 昨天天气回顾:风力' + yesterday.fengli + ' 风向:' + yesterday.fengxiang + ' ' + yesterday.high + ' ' + yesterday.low + ' 天气:' + yesterday.type + ' 日期:' + yesterday.date
+          xtl.$qS('.wh-show div[name=today]').innerHTML = '今日温度:' + data.wendu + ' 建议:' + data.ganmao
+          // let tomorrow = data.forecast[0]
+          // xtl.$qS('.wh-show div[name=tomorrow]').innerHTML = ' 明日天气预报:风力' + tomorrow.fengli + ' 风向:' + tomorrow.fengxiang + ' ' + tomorrow.high + ' ' + tomorrow.low + ' 天气:' + tomorrow.type + ' 日期:' + tomorrow.date
+          for (let i = 0; i < forecast.length; i++) {
+            arr.push('<div code="1">')
+            arr.push('<span code="1" class="wea">' + '<div code="1">' + forecast[i].date + '</div>' + '</span>')
+            // arr.push('<span class="img">' + '<div>' + '<img src="' + 'img/sun.png' + '">' + '</div>' + '</span>')
+            arr.push('<span code="1" class="img">' + '<div code="1" style="background-position:' + weather_obj[forecast[i].type] + '" class="img-wea"></div>' + '</span>')
+            arr.push('<span code="1" class="tem">' + '<div code="1">' + forecast[i].low.substring(3) + '~' + forecast[i].high.substring(3) + '</div>' + '</span>')
+            arr.push('<span code="1" class="fengli">' + '<div code="1">' + forecast[i].fengli + '</div>' + '</span>')
+            arr.push('</div>')
+          }
+          xtl.$qS('.wh-show div[name=tomorrow]').innerHTML = arr.join('')
+
+        })
+      }
+
+      xtl.$qS('.weather img').onmouseenter = function (e) {
+        // console.log(e.clientX, e.clientY);
+        let whShow = xtl.$qS('.wh-show')
+        whShow.style.display = 'block'
+        whShow.style.top = this.offsetTop + this.offsetHeight + 'px'
+        whShow.style.left = whShow.offsetWidth / 2 + 100 + 'px'
+      }
+
+      // xtl.$qS('.weather img').onmouseout = function (e) {
+      //   // if (e.relatedTarget.className === "wh-show" || e.relatedTarget.parentNode.className === "wh-show") {
+      //   // xtl.$qS('.wh-show').style.display = 'block'
+      //   // } else {
+      //   xtl.$qS('.wh-show').style.display = 'none'
+      //   // }
+      // }
+      // xtl.$qS('.wh-show').onmouseover = function (e) {
+      //   xtl.$qS('.wh-show').style.display = 'block'
+      // }
+      // xtl.$qS('.wh-show').onmouseout = function (e) {
+      //   // if (e.relatedTarget.parentNode.className === 'wh-show') {
+      //   // this.style.display = 'block'
+      //   // } else {
+      //   // if (e.relatedTarget.nodeName !== 'IMG') {
+      //   xtl.$qS('.wh-show').style.display = 'none'
+      //   // }
+      //   // }
+      // }
+
+      xtl.$qS('.weather img').onmouseleave = function (e) {
+        // console.log(e.relatedTarget, e.relatedTarget.parentNode)
+        if (e.relatedTarget.className === 'wh-show' || e.relatedTarget.parentNode.className === 'wh-show') {
+          xtl.$qS('.wh-show').style.display = 'block';
+        } else {
+          xtl.$qS('.wh-show').style.display = 'none';
+        }
+      }
+
+      xtl.$qS('.wh-show').onmouseleave = function (e) {
+        // console.log(e.relatedTarget)
+        // var target = e.relatedTarget
+        // if (!target.getAttribute('code')) {
+        this.style.display = 'none';
+        // }
+      }
+
+      function getArticle() {
+        xtl.methods.getNews()
+      }
+      /*
+      * @描述 所有的委托方法的存放位置
+      */
+      function operateFn() {
+        /*
+        * @描述 标签委托
+        */
+        xtl.$qS('.s-type').onclick = function (e) {
+          let target = e.target
+          if (target.nodeName === 'SPAN') {
+            xtl.plugin.switchTab(target, xtl.$qSA('span', this), 's-on')
+          }
+        }
+        /*
+        * @描述 搜索按钮方法
+        */
+        xtl.$qS('button[name=searchBtn]').onclick = function () {
+          xtl.methods.searchByLabel()
+        }
+        /*
+        * @描述 下拉框
+        */
+       xtl.$qS('select[name=sel]').onchange = function() {
+        //  console.log(this.value);
+         xtl.methods.sortBYtime(this)
+       }
+      }
+      function init() {
+        checkLoginStatus()
+        getWeather()
+        getArticle()
+        operateFn()
+        xtl.methods.go()
+      }
+      init()
+    })();
+  </script>
+</body>
+
+</html>

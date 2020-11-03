@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #f40;
+}
+
+ul {
+  list-style: none;
+}
+
+.dis-in-block {
+  display: inline-block;
+}
+
+/*
+ * @描述 递增递减方案1
+ */
+.plugin-count-a span{
+  float: left;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #ccc;
+  background: #ededed;
+  font-weight: 700;
+  text-align: center;
+  line-height: 26px;
+  cursor: pointer;
+}
+.plugin-count-a span:hover {
+  border: 1px solid #f40;
+}
+.plugin-count-a input {
+  height: 26px;
+  width: 50px;
+  text-align: center;
+  float: left;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-right: none;
+}
+.plugin-count-a span[name=desc] {
+  min-width: 100px;
+  font-weight: normal;
+  background: #fff;
+  border: none;
+  cursor: auto;
+}
+.plugin-count-a span[name=desc]:hover {
+  border: none;
+}
+/*
+ * @描述 递增递减方案2
+ */
+.plugin-count-b {
+  margin-top: 5px;
+}
+.plugin-count-b ul {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+.plugin-count-b li {
+  float: left;
+}
+.plugin-count-b input {
+  height: 30px;
+  width: 50px;
+  text-align: center;
+  float: left;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  outline: none;
+}
+.plugin-count-b span {
+  width: 20px;
+  height: 12px;
+  line-height: 10px;
+  display: block;
+  border: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+}
+.plugin-count-b span:hover {
+  border: 1px solid #f40;
+}
+.plugin-count-b span:nth-child(2) {
+  line-height: 12px;
+  margin-top: 3px;
+}
+.plugin-count-b span[name=desc] {
+  height: 30px;
+  line-height: 30px;
+  min-width: 130px;
+  border: none;
+}

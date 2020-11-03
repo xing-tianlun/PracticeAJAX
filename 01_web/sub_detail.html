@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <title>详情页面</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .odiv {
+      width: 1500px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .odiv {
+      width: 1064px;
+      margin: 0 auto;
+    }
+
+    .head {
+      width: 100%;
+      min-height: 50px;
+      background: #f4f4f4;
+      overflow: hidden;
+    }
+
+    .head .login span {
+      margin: 0 5px;
+      font-size: 16px;
+      line-height: 40px;
+      cursor: pointer;
+    }
+
+    .head .login span:hover {
+      color: #f40;
+    }
+
+    .head .back a {
+      margin: 0 5px;
+      font-size: 16px;
+      line-height: 40px;
+    }
+
+    .head .back a:hover {
+      color: #f40;
+    }
+
+    .flow-l {
+      float: left;
+    }
+
+    .flow-r {
+      float: right;
+    }
+
+    .content {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .content .pic-show {
+      padding: 0 0 10px 0;
+    }
+
+    .c-l {
+      width: 35%;
+      min-height: 100px;
+    }
+
+    .c-r {
+      width: 60%;
+      min-height: 100px;
+    }
+
+    .ps-t {
+      width: 100%;
+      text-align: center;
+    }
+
+    .ps-b {
+      width: 100%;
+      height: 50px;
+      text-align: center;
+    }
+
+    .ps-b span {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 2px solid transparent;
+      margin: 0 5px 0 0;
+    }
+
+    .ps-b span.on {
+      border: 2px solid #f40;
+    }
+
+    .cr-price {
+      margin: 10px 0;
+      background: #fff2e8;
+      padding: 10px 0;
+      min-height: 30px;
+      font-size: 16px;
+      line-height: 20px;
+      color: #6c6c6c;
+      overflow: hidden;
+    }
+
+    .cr-price span {
+      text-align: center;
+    }
+
+    .cr-price div>span {
+      margin: 0 10px;
+    }
+
+    .padding5px {
+      padding: 5px;
+    }
+
+    .strongf40 {
+      font-weight: bold;
+      color: #f40;
+    }
+
+    .delivery {
+      overflow: hidden;
+    }
+
+    .p-color, .p-type {
+      margin: 10px 0 0 0;
+      overflow: hidden;
+    }
+
+    .p-num {
+      overflow: hidden;
+    }
+    .p-color div span,
+    .p-type div span {
+      border: 1px solid #dcdcdc;
+      background-color: #fff;
+      display: inline-block;
+      padding: 5px 8px;
+      margin: 3px 3px;
+    }
+
+    .p-color div span:hover,
+    .p-type div span:hover {
+      border: 2px solid #f40;
+      padding: 4px 7px;
+    }
+
+    .p-color div span.pc-on,
+    .p-type div span.pc-on {
+      border: 2px solid #f40;
+      padding: 4px 7px;
+      color: #f40;
+      background: url(../img/icon.png) no-repeat right bottom;
+    }
+
+    .pc-l {
+      width: 10%;
+      line-height: 30px;
+    }
+
+    .pc-r {
+      width: 85%;
+      overflow: hidden;
+    }
+    .p-buy button {
+      padding: 10px 20px;
+      outline: none;
+      font-size: 20px;
+      background: #f40;
+      font-weight: bold;
+      color: #fff;
+      border:#fff;
+      margin: 20px 0 0 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="odiv">
+    <div class="head">
+      <div class="login flow-l">
+        <span name="login"></span>你好
+      </div>
+      <div class="flow-r back">
+        <a href="../02_index.html">主页</a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="c-l flow-l">
+        <div class="pic-show">
+          <div class="ps-t">
+            <img src="../img//phonea.jpg" alt="">
+          </div>
+          <div class="ps-b">
+            <span name="a" class="on"><img src="../img/phone_a.jpg" alt=""></span>
+            <span name="b"><img src="../img/phone_b.jpg" alt=""></span>
+            <span name="c"><img src="../img/phone_c.jpg" alt=""></span>
+            <span name="d"><img src="../img/phone_d.jpg" alt=""></span>
+          </div>
+        </div>
+      </div>
+      <div class="c-r flow-r">
+       <!-- <div>
+          <h5>%title%</h5>
+          <div class="cr-price">
+            <span class="flow-l padding5px">%price% </span>
+            <span class="flow-l padding5px strongf40" name="price">$1900</span>
+            <div class="flow-r">
+              <span class="dis-in-block">
+                <div>%comment%</div>
+                <div>累计评论</div>
+              </span>
+              <span class="dis-in-block">
+                <div>%sell%</div>
+                <div>交易成功</div>
+              </span>
+            </div>
+          </div>
+          <div class="delivery">
+            <span class="flow-l padding5px">配送 </span>
+            <span class="flow-l padding5px">%address%</span>
+            <span class="flow-l padding5px">至 北京</span>
+          </div>
+          <div class="p-color">
+            <span class="flow-l pc-l padding5px">机身颜色</span>
+            <div class="flow-r pc-r">
+              %phone%
+            </div>
+          </div>
+          <div class="p-type">
+            <span class="flow-l pc-l padding5px">套餐类型</span>
+            <div class="flow-r pc-r">
+              <span class="pc-on">官方标配</span>
+            </div>
+          </div>
+          <div class="p-type">
+            <span class="flow-l pc-l padding5px">存储容量</span>
+            <div class="flow-r pc-r">
+              %store%
+            </div>
+          </div>
+          <div class="p-type">
+            <span class="flow-l pc-l padding5px">版本类型</span>
+            <div class="flow-r pc-r">
+              <span class="pc-on">中国大陆</span>
+            </div>
+          </div>
+          <div class="p-num">
+            <span class="flow-l pc-l padding5px">数量</span>
+            <div name="p-count" class="flow-r pc-r plugin-count-b">
+              %count%
+            </div>
+          </div>
+          <div class="p-buy">
+            <button>加入购物车</button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <script src="../js/common.js"></script>
+  <script src="../js/service.js"></script>
+  <script src="../js/plugin.js"></script>
+  <script src="../js/control.js"></script>
+  <script src="../js/sub_detail.js"></script>
+</body>
+
+</html>

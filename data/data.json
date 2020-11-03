@@ -1,0 +1,20 @@
+[
+  {
+    "username": "xing",
+    "password": 123,
+    "age": 23,
+    "address": "changping"
+  },
+  {
+    "username": "tian",
+    "password": 456,
+    "age": 23,
+    "address": "changping"
+  },
+  {
+    "username": "lun",
+    "password": 789,
+    "age": 23,
+    "address": "changping"
+  }
+]

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      /* border: 1px solid #000; */
+      text-align: center;
+      height: 30px;
+    }
+    button {
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="odiv">
+    <table>
+      <tr>
+        <td>用户名：</td>
+        <td><input type="text" name="txt"></td>
+      </tr>
+      <tr>
+        <td>密&nbsp;&nbsp;&nbsp;码：</td>
+        <td><input type="password" name="psw"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button name="login">登录</button></td>
+      </tr>
+    </table>
+  </div>
+  <script src="./js/common.js"></script>
+  <script src="./js/service.js"></script>
+  <script src="./js/control.js"></script>
+
+  <script>
+    (function () {
+      // function $qS(css, el = document) {
+      //   return el.querySelector(css)
+      // }
+      // function $qSA(css, el = document) {
+      //   return el.querySelectorAll(css)
+      // }
+      // 第一次请求会成功，status为200 第二次请求不会成功，status为304
+      // function getXMLHTTP() {
+      //   let xmlhttp
+      //   if (window.XMLHttpRequest) {
+      //     xmlhttp = new XMLHttpRequest()
+      //   } else {
+      //     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+      //   }
+      //   return xmlhttp
+      // }
+      // function send() {
+      //   let xmlhttp = getXMLHTTP()
+      //   xmlhttp.onreadystatechange = function() {
+      //     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      //       $qS('.odiv').innerText = xmlhttp.responseText
+      //     }
+      //   }
+      //   xmlhttp.open('GET', 'ajax_info.txt',true)
+      //   xmlhttp.send()
+      // }
+      // 在请求的后面添加一个时间戳 改变每次请求的网址，达到每次都能请求成功的向后台请求
+      // function getxmlhttp() {
+      //   let xmlhttp
+      //   if (window.XMLHttpRequest) {
+      //     xmlhttp = new XMLHttpRequest
+      //   } else {
+      //     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+      //   }
+      //   return xmlhttp
+      // }
+      // function send(callback) {
+      //   let xmlhttp = getxmlhttp()
+      //   xmlhttp.onreadystatechange = function () {
+      //     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      //       let data = JSON.parse(xmlhttp.responseText);
+      //       // console.log(data);
+      //       callback(data);
+      //     }
+      //   }
+      //   let time = new Date()
+      //   xmlhttp.open('GET', 'data/data.json?time='+time.getTime(), true)
+      //   xmlhttp.send()
+      // }
+      // send()
+      xtl.$qS('button[name=login]').onclick = function() {
+        let username = xtl.$qS('input[name=txt]')
+        let psw = xtl.$qS('input[name=psw]')
+        xtl.send(xtl.service.login,function(data) {
+          if(username.value === '' || psw.value === '') {
+            alert('用户名或密码为空！')
+            return
+          }
+          let flag = false;
+          for (let i = 0; i < data.length; i++) {
+            if(data[i].username === username.value && data[i].password == psw.value) {
+              flag = true
+              break
+            }
+          }
+          if(flag) {
+            // if(!xtl.getCookie('username')) {
+              xtl.setCookie('username', username.value)
+            // }else {
+            //   xtl.removeCookie('username')
+            //   xtl.setCookie('username', username.value)
+            // }
+            location.href = './02_index.html?username='+username.value
+          }else {
+            psw.value = ''
+            alert('用户名或密码错误！')
+          }
+        })
+      }
+      function init() {
+        xtl.methods.go('./02_index.html')
+      }
+      init()
+    })();
+  </script>
+</body>
+
+</html>
