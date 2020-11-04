@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 a {
@@ -15,6 +15,15 @@ a:hover {
 
 ul {
   list-style: none;
+}
+/*
+ * @描述 头部css
+*/
+.head {
+  width: 100%;
+  min-height: 50px;
+  background: #f4f4f4;
+  overflow: hidden;
 }
 
 .dis-in-block {

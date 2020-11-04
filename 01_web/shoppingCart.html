@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <title>Document</title>
+  <style>
+    .odiv {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    .head .login span {
+      margin: 0 5px;
+      font-size: 16px;
+      line-height: 40px;
+      cursor: pointer;
+    }
+
+    .head .login span:hover {
+      color: #f40;
+    }
+
+    .head .back a {
+      margin: 0 5px;
+      font-size: 16px;
+      line-height: 40px;
+    }
+
+    .head .back a:hover {
+      color: #f40;
+    }
+
+    .flow-l {
+      float: left;
+    }
+
+    .flow-r {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="odiv">
+    <div class="head">
+      <div class="login flow-l">
+        <span name="login"></span>你好
+      </div>
+      <div class="flow-r back">
+        <a href="../02_index.html">主页</a>
+        <a href="../01_web/shoppingCart.html">我的购物车</a>
+      </div>
+    </div>
+    <h1>我的我的购物车</h1>
+    <div><input type="checkbox" name="chks"> 全选</div>
+    <ul class="sc">
+      <li>
+        <div class="sc-ck">
+          <input type="checkbox" name="chk">
+        </div>
+        <div class="sc-pic">
+          
+        </div>
+        <div class="sc-list">
+
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script src="../js/common.js"></script>
+  <script src="../js/service.js"></script>
+  <script src="../js/plugin.js"></script>
+  <script src="../js/control.js"></script>
+  <script src="../js/shoppingCart.js"></script>
+</body>
+</html>

@@ -26,13 +26,6 @@
       margin: 0 auto;
     }
 
-    .head {
-      width: 100%;
-      min-height: 50px;
-      background: #f4f4f4;
-      overflow: hidden;
-    }
-
     .head .login span {
       margin: 0 5px;
       font-size: 16px;
@@ -176,6 +169,9 @@
       width: 85%;
       overflow: hidden;
     }
+    div[name=p-count] {
+      margin-top: 8px;
+    }
     .p-buy button {
       padding: 10px 20px;
       outline: none;
@@ -197,6 +193,7 @@
       </div>
       <div class="flow-r back">
         <a href="../02_index.html">主页</a>
+        <a href="../01_web/shoppingCart.html">我的购物车</a>
       </div>
     </div>
     <div class="content">
@@ -261,7 +258,7 @@
           </div>
           <div class="p-num">
             <span class="flow-l pc-l padding5px">数量</span>
-            <div name="p-count" class="flow-r pc-r plugin-count-b">
+            <div name="p-count" class="flow-r pc-r plugin-count-a">
               %count%
             </div>
           </div>
