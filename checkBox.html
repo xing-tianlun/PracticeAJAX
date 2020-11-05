@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .odiv {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid #000;
+      width: 100px;
+    }
+
+    tr:hover {
+      background: #00f;
+    }
+
+    .on {
+      background: #00f;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="odiv">
+    <input type="checkbox" name="ck"> 全选
+    <button name="del">删除</button>
+    <table>
+      <tr>
+        <td><input type="checkbox" name="chk"></td>
+        <td>22</td>
+        <td>33</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk"></td>
+        <td>22</td>
+        <td>33</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk"></td>
+        <td>22</td>
+        <td>33</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk"></td>
+        <td>22</td>
+        <td>33</td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    (function () {
+      function $qS(css, el = document) {
+        return el.querySelector(css)
+      }
+      function $qSA(css, el = document) {
+        return el.querySelectorAll(css)
+      }
+      function operateFn() {
+        let ck = $qS('input[name=ck]')
+        let odiv = $qS('.odiv')
+        let tb = $qS('tbody')
+        odiv.onclick = function (e) {
+          let target = e.target
+          let chks = $qSA('input[name=chk]')
+          if (target.nodeName === 'BUTTON') {
+            if (target.getAttribute('name') == 'del') { // 删除
+              for (let i = 0; i < chks.length; i++) {
+                if (chks[i].checked) {
+                  tb.removeChild(chks[i].parentNode.parentNode)
+                }
+              }
+            }
+          }
+          if (target.nodeName === 'INPUT') {
+            if (target.type === 'checkbox') {
+              if (target.getAttribute('name') === 'ck') { // 全选
+                if (target.checked) {
+                  handleChks(true)
+                } else {
+                  handleChks(false)
+                }
+              }
+              if (target.getAttribute('name') === 'chk') {
+                if (target.checked) {
+                  target.parentNode.parentNode.className = 'on'
+                } else {
+                  target.parentNode.parentNode.className = ''
+                }
+                let flag = true
+                for (let i = 0; i < chks.length; i++) {
+                  if (chks[i].checked == false) {
+                    flag = false
+                    break
+                  }
+                }
+                ck.checked = flag ? true : false
+              }
+            }
+          }
+        }
+        function handleChks(flag) {
+          for (let i = 0; i < chks.length; i++) {
+            chks[i].checked = flag
+            if (flag) {
+              chks[i].parentNode.parentNode.className = 'on'
+            } else {
+              chks[i].parentNode.parentNode.className = ''
+            }
+          }
+        }
+      }
+      function init() {
+        operateFn()
+      }
+      init()
+    })();
+  </script>
+</body>
+
+</html>

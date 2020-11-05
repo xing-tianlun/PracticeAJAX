@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,8 +40,50 @@
     .flow-r {
       float: right;
     }
+
+    .sp-c {
+      width: 100px;
+      height: 100px;
+      background: #00f;
+    }
+
+    .sc li {
+      overflow: hidden;
+      background-color: #f5f5f5;
+      margin-top: 10px;
+      padding: 10px;
+    }
+
+    .sc li:hover {
+      border: 1px solid red;
+      padding: 9px;
+    }
+
+    .sc li.sc-on {
+      border: 1px solid red;
+      padding: 9px;
+    }
+
+    .sc-margin {
+      margin-left: 10px;
+    }
+
+    .sc-list {
+      width: 600px;
+      min-height: 20px;
+    }
+
+    .sc-list div[name=list] {
+      margin-top: 40px;
+      overflow: hidden;
+    }
+
+    .h-ck {
+      padding: 10px;
+    }
   </style>
 </head>
+
 <body>
   <div class="odiv">
     <div class="head">
@@ -53,17 +96,85 @@
       </div>
     </div>
     <h1>我的我的购物车</h1>
-    <div><input type="checkbox" name="chks"> 全选</div>
+    <div class="h-ck ck-status">
+      <!-- <i class="checked"></i> -->
+      <i name="ck" class="unchecked"></i>
+      <!-- <input type="checkbox" name="chks"> 全选 -->
+    </div>
     <ul class="sc">
       <li>
-        <div class="sc-ck">
-          <input type="checkbox" name="chk">
+        <div class="sc-ck flow-l sc-margin">
+          <i name="chk" class="unchecked"></i>
+          <!-- <input type="checkbox" name="chk"> -->
         </div>
-        <div class="sc-pic">
-          
+        <div class="sc-pic flow-l sc-margin">
+          <div class="sp-c"></div>
         </div>
-        <div class="sc-list">
-
+        <div class="sc-list flow-l sc-margin">
+          <div>
+            <a href="sub_detail.html#id=a-2">手机2</a>
+          </div>
+          <div name="list">
+            <span class="flow-l">￥1900</span>
+            <div class="flow-r">
+              <span class="dis-in-block plugin-count-a">
+                组件
+              </span>
+              <span class="dis-in-block">
+                <a href="javascript:;" name="del">删除</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sc-ck flow-l sc-margin">
+          <i name="chk" class="unchecked"></i>
+          <!-- <input type="checkbox" name="chk"> -->
+        </div>
+        <div class="sc-pic flow-l sc-margin">
+          <div class="sp-c"></div>
+        </div>
+        <div class="sc-list flow-l sc-margin">
+          <div>
+            <a href="sub_detail.html#id=a-2">手机2</a>
+          </div>
+          <div name="list">
+            <span class="flow-l">￥1900</span>
+            <div class="flow-r">
+              <span class="dis-in-block plugin-count-a">
+                组件
+              </span>
+              <span class="dis-in-block">
+                <a href="javascript:;" name="del">删除</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sc-ck flow-l sc-margin">
+          <i name="chk" class="unchecked"></i>
+          <!-- <input type="checkbox" name="chk"> -->
+        </div>
+        <div class="sc-pic flow-l sc-margin">
+          <div class="sp-c"></div>
+        </div>
+        <div class="sc-list flow-l sc-margin">
+          <div>
+            <a href="sub_detail.html#id=a-2">手机2</a>
+          </div>
+          <div name="list">
+            <span class="flow-l">￥1900</span>
+            <div class="flow-r">
+              <span class="dis-in-block plugin-count-a">
+                组件
+              </span>
+              <span class="dis-in-block">
+                <a href="javascript:;" name="del">删除</a>
+              </span>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
@@ -74,4 +185,5 @@
   <script src="../js/control.js"></script>
   <script src="../js/shoppingCart.js"></script>
 </body>
+
 </html>
