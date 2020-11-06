@@ -134,6 +134,23 @@
           operateAddOrMinus(target, this, 'minus')
         }
       }
+      if(target.nodeName === "BUTTON") {
+        if(target.getAttribute('name') === 'shop') {
+          let val = xtl.methods.changeHashToObj('id')
+          let username = 'shop_' + xtl.getCookie('username')
+          let shop = xtl.getCookie(username)
+          let obj = !!shop ? JSON.parse(shop) : {}
+          if(!obj[val]) {
+            obj[val] = {
+              num: 1,
+            }
+          }else {
+            obj[val].num++
+          }
+          // obj[val][num] = obj[val] ? obj[val][num]++ : 1
+          xtl.setCookie(username, JSON.stringify(obj))
+        }
+      }
       /*
      * @描述 递增递减中的文本框的onkeyup事件
     */

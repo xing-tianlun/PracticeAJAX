@@ -28,6 +28,11 @@
       font-size: 16px;
       line-height: 40px;
     }
+    .head .quit a {
+      margin: 0 5px;
+      font-size: 16px;
+      line-height: 40px;
+    }
 
     .head .back a:hover {
       color: #f40;
@@ -80,6 +85,12 @@
 
     .h-ck {
       padding: 10px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .h-ck span {
+      font-size: 16px;
+      vertical-align: top;
     }
   </style>
 </head>
@@ -90,93 +101,45 @@
       <div class="login flow-l">
         <span name="login"></span>你好
       </div>
+      <div class="flow-r quit">
+        <a href="javascript:;">退出</a>
+      </div>
       <div class="flow-r back">
         <a href="../02_index.html">主页</a>
-        <a href="../01_web/shoppingCart.html">我的购物车</a>
+        <a href="./product.html">淘宝</a>
       </div>
     </div>
     <h1>我的我的购物车</h1>
     <div class="h-ck ck-status">
       <!-- <i class="checked"></i> -->
-      <i name="ck" class="unchecked"></i>
+      <i name="ck" class="unchecked"></i> <span>全选</span>
       <!-- <input type="checkbox" name="chks"> 全选 -->
     </div>
     <ul class="sc">
-      <li>
+      <!-- <li name="%id%">
         <div class="sc-ck flow-l sc-margin">
           <i name="chk" class="unchecked"></i>
-          <!-- <input type="checkbox" name="chk"> -->
         </div>
         <div class="sc-pic flow-l sc-margin">
           <div class="sp-c"></div>
         </div>
         <div class="sc-list flow-l sc-margin">
           <div>
-            <a href="sub_detail.html#id=a-2">手机2</a>
+            <a href="sub_detail.html#id=%id%">%title%</a>
           </div>
           <div name="list">
-            <span class="flow-l">￥1900</span>
+            <span class="flow-l">%price%</span>
             <div class="flow-r">
               <span class="dis-in-block plugin-count-a">
-                组件
+                %plugin%
               </span>
               <span class="dis-in-block">
-                <a href="javascript:;" name="del">删除</a>
+                <a href="javascript:;" name="del" code="%id%">删除</a>
               </span>
             </div>
           </div>
         </div>
-      </li>
-      <li>
-        <div class="sc-ck flow-l sc-margin">
-          <i name="chk" class="unchecked"></i>
-          <!-- <input type="checkbox" name="chk"> -->
-        </div>
-        <div class="sc-pic flow-l sc-margin">
-          <div class="sp-c"></div>
-        </div>
-        <div class="sc-list flow-l sc-margin">
-          <div>
-            <a href="sub_detail.html#id=a-2">手机2</a>
-          </div>
-          <div name="list">
-            <span class="flow-l">￥1900</span>
-            <div class="flow-r">
-              <span class="dis-in-block plugin-count-a">
-                组件
-              </span>
-              <span class="dis-in-block">
-                <a href="javascript:;" name="del">删除</a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sc-ck flow-l sc-margin">
-          <i name="chk" class="unchecked"></i>
-          <!-- <input type="checkbox" name="chk"> -->
-        </div>
-        <div class="sc-pic flow-l sc-margin">
-          <div class="sp-c"></div>
-        </div>
-        <div class="sc-list flow-l sc-margin">
-          <div>
-            <a href="sub_detail.html#id=a-2">手机2</a>
-          </div>
-          <div name="list">
-            <span class="flow-l">￥1900</span>
-            <div class="flow-r">
-              <span class="dis-in-block plugin-count-a">
-                组件
-              </span>
-              <span class="dis-in-block">
-                <a href="javascript:;" name="del">删除</a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </li>
+      </li> -->
     </ul>
   </div>
   <script src="../js/common.js"></script>

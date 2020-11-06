@@ -41,19 +41,21 @@
   function getCookie(key) {
     let arr = document.cookie.split(';')
     let obj = {}
+    let methods = this.methods
+    let trim = methods.trim
     for (let i = 0; i < arr.length; i++) {
       let ar = arr[i].split('=')
-      obj[ar[0].trim()] = ar[1]
+      obj[trim(ar[0])] = ar[1]
     }
     return obj[key]
   }
-  function removeCookie(key) {
+  function removeCookie(key, path = ';path=/') {
     let date = new Date()
     let day = -1
     let expires
     date.setTime(date.getTime()+day*24*60*60*1000)
     expires = "expires="+date.toGMTString()
-    document.cookie = key+'='+getCookie(key)+';'+expires;
+    document.cookie = key+'='+this.getCookie(key)+';'+ expires + path;
   }
   let obj = {
     $qS,

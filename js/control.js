@@ -109,6 +109,13 @@
         obj[ar[0]] = ar[1]
       }
       return obj[key]
+    },
+    /*
+    * @描述 去除字符串所有空格
+    */
+    trim(s) {
+      let reg = /\s/g
+      return s.replace(reg, "")
     }
   })
 
