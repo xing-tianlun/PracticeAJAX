@@ -4,7 +4,7 @@
 (function() {
   // let methods = xtl.methods;
   // methods.go = methods
-  
+
   /*
    * @ 描述 页面初始化跳转
    * @参数 url 可选 跳转地址
@@ -25,10 +25,10 @@
     go
   }
   Object.assign(xtl.methods, {
-    attrs: {
-      // @描述 搜索出的数据
-      array: []
-    },
+    // attrs: {
+    //   // @描述 搜索出的数据
+    //   array: []
+    // },
     searchByLabel() {
       let span = xtl.$qS('.s-type span.s-on')
       this.getNews(span)
@@ -36,7 +36,7 @@
     sortBYtime(target) {
       let articles = xtl.$qSA('div.article')
       let arr = []
-      let frgment = document.createDocumentFragment() // 创建虚拟DOM节点
+      let fragment = document.createDocumentFragment() // 创建虚拟DOM节点
       let attr
       for (let i = 0; i < articles.length; i++) {
         attr = articles[i].getAttribute('time')
@@ -55,11 +55,11 @@
           return  b.time - a.time
         })
       }
-      // xtl.$qS('.content').innerHTML = ''
+      xtl.$qS('.content').innerHTML = ''
       arr.forEach(item => {
         frgment.appendChild(item.el)
       })
-      xtl.$qS('.content').appendChild(frgment); // 将虚拟DOM节点添加到真实的节点中
+      xtl.$qS('.content').appendChild(fragment); // 将虚拟DOM节点添加到真实的节点中
     },
     getNews(param) {
       let self = this
@@ -75,11 +75,10 @@
           for (let i = 0; i < data.length; i++) {
             if(data[i][param.getAttribute('name')] === txt.value) {
               lists.push(data[i])
-              // console.log(lists);
             }
           }
         }
-        self.attrs.array = lists;
+        // self.attrs.array = lists;
 				for(var i=0;i<lists.length;i++){
 					element = lists[i];
 					arr.push('<div time="'+element.date+'" class="article" key="' + element.uniquekey + '">' +
