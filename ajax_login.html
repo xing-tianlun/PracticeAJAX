@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .odiv {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 10px;
+      border: 1px solid #000;
+    }
+
+    .code {
+      display: block;
+      width: 100px;
+      height: 40px;
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+
+    input {
+      width: 302px;
+      height: 38px;
+    }
+
+    button,
+    input {
+      font-size: 25px;
+      outline: 0;
+    }
+
+    input[name=code] {
+      width: 180px;
+    }
+
+    button {
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="odiv">
+    <table>
+      <tr>
+        <td align="right">用户名：</td>
+        <td colspan="2">
+          <input type="text" name="username">
+        </td>
+      </tr>
+      <tr>
+        <td align="right">密 码：</td>
+        <td colspan="2">
+          <input type="password" name="password">
+        </td>
+      </tr>
+      <tr>
+        <td align="right">验证码：</td>
+        <td><input type="text" name="code"></td>
+        <td>
+          <span class="code"></span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center">
+          <button name="login">登录</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    (function () {
+      function $qS(css, el = document) {
+        return el.querySelector(css)
+      }
+      function $qSA(css, el = document) {
+        return el.querySelectorAll(css)
+      }
+      function getxmlhttp() {
+        let xmlhttp
+        if (window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest()
+        } else {
+          xmlhttp = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+        return xmlhttp
+      }
+      function send(url, method, param, callback) {
+        let xmlhttp = getxmlhttp()
+        xmlhttp.onreadystatechange = () => {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            let data = JSON.parse(xmlhttp.responseText)
+            callback(data)
+          }
+        }
+        let time = new Date()
+        xmlhttp.open(method, url + '?time=' + time.getTime(), true)
+        if (method === 'POST') {
+          xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+        }
+        xmlhttp.send(param)
+      }
+      // http://192.168.36.28:3000/ceshi // 测试地址
+      let host = 'http://192.168.36.28:3000'
+      let i_code;
+      // /identify/verifyCode
+      function getVerifyCode() {
+        send(host + '/identify/verifyCode', 'GET', '', function (msg) {
+          console.log(msg);
+          $qS('.code').innerHTML = msg.data
+          i_code = msg.code;
+        })
+      }
+      $qS('.code').onclick = function () {
+        getVerifyCode()
+      }
+      // {
+      // 	"name" : "dragon",
+      // 	"password" : 123
+      // },
+      // {
+      // 	"name" : "admin",
+      // 	"password" : 456
+      // }
+      $qS('button[name=login]').onclick = function () {
+        // /lists/login
+        let username = $qS('input[name=username]')
+        let password = $qS('input[name=password]')
+        let code = $qS('input[name=code]')
+        let param = 'username=' + username.value + '&password=' + password.value + '&code=' + code.value + '&icode=' + i_code;
+        send(host + '/lists/login', 'POST', param, function (msg) {
+          console.log(msg);
+          getWeather()
+        })
+      }
+      function getWeather() {
+        // /users/weather
+        send(host + '/users/weather', 'GET', '', function (msg) {
+          console.log(msg);
+        })
+      }
+      function init() {
+        getVerifyCode()
+      }
+      init()
+      // setInterval(function () {
+      //   init()
+      // },1)
+      // $qS('button[name=submit]').onclick = function () {
+      //   send(host + '/lists/ceshi', 'POST', 'username=xing&password=123123',function (msg) {
+      //     console.log(msg);
+      //   })
+      // }
+    })();
+  </script>
+</body>
+
+</html>

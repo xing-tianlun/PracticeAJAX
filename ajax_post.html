@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="odiv">
+    <button name="submit">请求</button>
+  </div>
+  <script>
+    (function() {
+      function $qS(css, el = document) {
+        return el.querySelector(css)
+      }
+      function $qSA(css, el = document) {
+        return el.querySelectorAll(css)
+      }
+      function getxmlhttp() {
+        let xmlhttp
+        if(window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest()
+        }else {
+          xmlhttp = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+        return xmlhttp
+      }
+      function send(url, method, param, callback) {
+        let xmlhttp = getxmlhttp()
+        xmlhttp.onreadystatechange = () => {
+          if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            let data = JSON.parse(xmlhttp.responseText)
+            callback(data)
+          }
+        }
+        let time = new Date()
+        xmlhttp.open(method, url + '?time=' + time.getTime(), true)
+        if(method == 'POST') {
+          xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+        }
+        xmlhttp.send(param)
+      }
+      // http://192.168.36.28:3000/ceshi // 测试地址
+      let host = 'http://192.168.36.28:3000'
+      $qS('button[name=submit]').onclick = function () {
+        send(host + '/lists/ceshi', 'POST', 'username=xing&password=123123',function (msg) {
+          console.log(msg);
+        })
+      }
+    })();
+  </script>
+</body>
+</html>
