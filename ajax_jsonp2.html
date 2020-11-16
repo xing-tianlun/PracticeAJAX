@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jsonp</title>
+</head>
+
+<body>
+  <button name='submit'>获取</button>
+  <script>
+    (function () {
+      function $$(css) {
+        return document.querySelector(css);
+      }
+
+      function _(css) {
+        return document.querySelectorAll(css);
+      }
+      function getXMLHTTP() {
+        var xmlHttp;
+        if (window.XMLHttpRequest) {
+          xmlHttp = new XMLHttpRequest()
+        } else {
+          xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+
+        return xmlHttp;
+      }
+
+      // url,method,param,callback
+      function send(params) {
+        var url = params.url || '';
+        var method = params.method || 'GET';
+        var param = params.param || '';
+        var callback = params.callback || function () { };
+        var jsonp = params.jsonp || '';
+        var xmlHttp = getXMLHTTP();
+        xmlHttp.onreadystatechange = function () {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            if (jsonp) {
+              // var fn = eval(xmlHttp.responseText);
+              // console.log(eval(xmlHttp.responseText))
+              eval(xmlHttp.responseText);
+            } else {
+              var data = JSON.parse(xmlHttp.responseText);
+              callback(data)
+            }
+          }
+
+        }
+        var time = new Date();
+        url = !!jsonp ?
+          url + '&time=' + time.getTime() :
+          url + '?time=' + time.getTime();
+        xmlHttp.open(method, url, true);
+        if (method === 'POST') {
+          xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        }
+        xmlHttp.send(param);
+      }
+
+      var host = 'http://192.168.137.1:3000';
+      //var host = 'http://localhost:3000';
+      $$('button[name=submit]').onclick = function () {
+        send({
+          url: host + '/users/wea?callback=getWeather',
+          jsonp: '1'
+        })
+      }
+      this.getWeather = function (msg) {
+        console.log(msg);
+      }
+    }());
+  </script>
+</body>
+
+</html>

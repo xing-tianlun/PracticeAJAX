@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsonp</title>
+</head>
+
+<body>
+  <div class="odiv">
+    <button name="submit">获取</button>
+  </div>
+  <script>
+    (function () {
+      function $qS(css, el = document) {
+        return el.querySelector(css)
+      }
+      function $qSA(css, el = document) {
+        return el.querySelectorAll(css)
+      }
+      function getxmlhttp() {
+        let xmlhttp
+        if (window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest()
+        } else {
+          xmlhttp = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+        return xmlhttp
+      }
+      function send(params) {
+        let url = params.url || ''
+        let method = params.method || 'GET'
+        let param = params.param || ''
+        let callback = params.callback || function () { }
+        let jsonp = params.jsonp || ''
+        let xmlhttp = getxmlhttp()
+        console.log(xmlhttp.readyState);
+        console.log(xmlhttp.status);
+
+        xmlhttp.onreadystatechange = function () {
+          console.log(xmlhttp.readyState);
+          console.log(xmlhttp.status);
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (jsonp) {
+
+              eval(xmlhttp.responseText)
+
+              // let fn = eval(xmlhttp.responseText)
+              // fn()
+
+              let fn = new Function('return' + xmlhttp.responseText)
+              fn()
+            } else {
+              let data = JSON.parse(xmlhttp.responseText)
+              callback(data)
+            }
+          }
+        }
+        let time = new Date()
+        url = !!jsonp ? url + '&time=' + time.getTime() : url + '?time=' + time.getTime()
+        xmlhttp.open(method, url, true)
+        if (method == 'POST') {
+          xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+        }
+        xmlhttp.send(param)
+      }
+      // let host = 'http://192.168.137.1:8888'
+      var host = 'http://192.168.34.167:3000';
+      send({
+        url: host + '/users/wea?callback=xing',
+        jsonp: '1'
+      })
+      $qS('button[name=submit]').onclick = function () {
+        console.log(1);
+        send({
+          url: host + '/users/wea?callback=xing',
+          jsonp: '1'
+        })
+      }
+
+      this.xing = function (msg) {
+        console.log(msg);
+        console.log('xing');
+        $qS('.odiv').innerHTML += msg.reason
+
+      }
+      // wea?callback=xing&time=1605057693068
+      // xing({ reason: "成功的返回", result: { stat: "1", … }, error_code: 0 })
+      // error_code: 0
+      // reason: "成功的返回"
+      // result: { stat: "1", … }
+
+    })();
+  </script>
+</body>
+
+</html>
