@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="odiv">
+  </div>
+  <script>
+    (function() {
+      function getxml() {
+        let xml
+        if(window.XMLHttpRequest) {
+          xml = new XMLHttpRequest()
+        }else {
+          xml = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+        return xml
+      }
+      function send(url, callback) {
+        let xml = getxml()
+        xml.onreadystatechange = () => {
+          if(xml.readyState == 4 && xml.status == 200) {
+            let data = JSON.parse(xml.responseText)
+            callback(data)
+          }
+        }
+        let time = new Date()
+        xml.open('GET', url + '?time=' + time.getTime(), true)
+        xml.send()
+      }
+      send('./data/data.json', function (msg) {
+        console.log(msg);
+      })
+    })();
+  </script>
+</body>
+</html>

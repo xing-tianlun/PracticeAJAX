@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>百度搜索jsonp接口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      width: 500px;
+      height: 40px;
+      position: relative;
+    }
+
+    .wrap input {
+      width: 500px;
+      height: 40px;
+      border: 2px solid deepskyblue;
+      outline: 0;
+      font-size: 20px;
+    }
+
+    .word-list {
+      width: 500px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border: 2px solid deepskyblue;
+      border-top: 0;
+    }
+
+    .word-list li {
+      list-style: none;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <input type="text" />
+    <ul class="word-list">
+    </ul>
+  </div>
+
+</body>
+<script type="text/javascript">
+  var ipt = document.querySelector("input")
+  var oUl = document.querySelector(".word-list")
+  ipt.oninput = function () {
+    console.log(1);
+    var val = ipt.value//每次输入时获取input中的value值
+    var script = document.createElement("script")//每次输入时都需要调用这个接口，也就是需要创建一个script标签
+    script.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + val + "&cb=showWord"//设置script标签的src属性
+    document.body.appendChild(script)
+    script.remove()//防止页面中有过多的script标签，每次用完后都删除这个标签
+  }
+  function showWord(res) {
+    console.log(res);
+    oUl.innerHTML = ""
+    for (var i = 0; i < res.s.length; i++) {
+      var li = document.createElement("li")
+      li.innerHTML = res.s[i]
+      oUl.appendChild(li)
+    }
+  }
+</script>
+<!-- <script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='迪丽热巴'&cb=showWord"></script> -->
+<!--jsonp的请求方式其实是get-->
+<ml>
